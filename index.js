@@ -33,7 +33,7 @@ io.on("connection", (socket) => {
 	// send and get messages
 	socket.on("sendMessage", ({ sentBy, receiverId, text }) => {
 		const receiver = getUser(receiverId);
-		io.to(receiver.socketId).emit("getMessage", {
+		io.to(receiver?.socketId).emit("getMessage", {
 			sentBy,
 			text,
 		});
